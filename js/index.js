@@ -101,3 +101,20 @@ contact_email.textContent = siteContent['contact']['email'];
 // footer
 let footer_copyright = document.querySelector('footer p');
 footer_copyright.textContent = siteContent['footer']['copyright']
+
+// change nav link color and add new items
+// so I could have done this any number of ways and I thought this would be the funniest.
+let body = document.querySelector('body');
+const style = document.createElement("style")
+style.innerHTML = "nav a {color:green!important;}"
+body.prepend(style);
+
+let nav = document.querySelector('nav');
+const link_template = (href, content) => {
+  let link = document.createElement('a');
+  link.setAttribute('href', href);
+  link.textContent = content;
+  return link;
+}
+nav.prepend(link_template('#', 'Foo'));
+nav.appendChild(link_template('#', 'Bar'));
